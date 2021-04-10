@@ -49,7 +49,7 @@
 - 使用函数`CpoyFile`将本文件复制到文件`C:\\Temp\\cc.exe`
 - 使用函数`DeleteFile`将文件`C:\\Temp\\cc.exe`删除
 - 
-  - 使用函数`RegOpenKeyEx`打开注册表的键`HKEY\\Software\\Microsoft\\Windows\\CurrentVersion\\Run`
+  - 使用函数`RegOpenKeyEx`打开注册表的键`Software\\Microsoft\\Windows\\CurrentVersion\\Run`
   - 使用函数`RegSetValueEx`给该注册表键创建一个`Malware`的项,赋给值`C:\\Temp\\cc.exe`
   - 注册表修改失败时打印错误信息`Error 3.1: Could not set Registry value\n`
 
