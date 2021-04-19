@@ -1,0 +1,47 @@
+import "hash"
+rule lab07_01
+{
+strings:
+	$s1="Malservice" fullword ascii
+	$s2="HGL345" fullword ascii //mutex
+	$s3="http://www.malwareanalysisbook.com" fullword ascii
+	$s4="Internet Explorer 8.0" fullword ascii
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 30KB 
+		and hash.md5(0,filesize)=="c04fd8d9198095192e7d55345966da2e"
+}
+rule lab07_02
+{
+strings:
+	$s1="ole32.dll" fullword ascii
+	$s2="OLEAUT32.dll" fullword ascii
+	$s3={01 DF 02 00 00 00 00 00 C0 00 00 00 00 00 00 46}//rclsid
+	$s4={61 16 0C D3 AF CD D0 11 8A 3E 00 C0 4F C9 E2 6E}//riid
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 20KB
+		and hash.md5(0,filesize)=="7bbc691f7e87f0986a1030785268f190"
+}
+rule lab07_03_dll
+{
+strings:
+	$s1="hello" fullword ascii
+	$s2="sleep" fullword ascii
+	$s3="exec" fullword ascii
+	$s4="127.26.152.13" fullword ascii
+	$s5="SADFHUHF" fullword ascii
+	$s6="WS2_32.dll"
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 200KB
+		and hash.md5(0,filesize)=="290934c61de9176ad682ffdd65f0a669"
+}
+rule lab07_03_exe
+{
+strings:
+	$s1="WARNING_THIS_WILL_DESTROY_YOUR_MACHINE" fullword ascii
+	$s2="C:\\*" fullword ascii
+	$s3=".exe" fullword ascii
+	$s4="C:\\windows\\system32\\kerne132.dll" fullword ascii
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 20KB
+		and hash.md5(0,filesize)=="bd62dab79881bc6ec0f6be4eef1075bc"
+}
