@@ -16,7 +16,7 @@
 
 如上,除了`kernel32.dll`、`netapi32.dll`、`dll1.dll`、`dll2.dll`与其间接调用的库文件外,还调用了`user32.dll`、``dll3.dll`
 
-综上,导入的库文件有`kernel32.dll`、`user32.dll`、`netapi32.dll`、`dll1.dll`、`dll2.dll`、``dll3.dll`
+综上,导入的库文件有`kernel32.dll`、`user32.dll`、`netapi32.dll`、`dll1.dll`、`dll2.dll`、`dll3.dll`
 
 
 
