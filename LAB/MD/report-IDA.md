@@ -10,7 +10,7 @@
 
 #### 主界面分析
 
-![](../IMG/IDA-1.png)
+![](../IMG/report_idapro-1.png)
 
 如上是`IDA`的主界面,可以分为以下分区:
 
@@ -29,7 +29,7 @@
 
 其中,视图左侧有跳转箭头,无条件跳转使用实线箭头,条件跳转使用虚线箭头
 
-![](../IMG/IDA-2.png)
+![](../IMG/report_idapro-2.png)
 
 可以使用空格键与反汇编窗口图形视图进行切换
 
@@ -39,7 +39,7 @@
 
 在默认情况下,无条件跳转使用蓝色箭头,`true`分支跳转使用绿色箭头,`false`分支使用红色箭头.
 
-![](../IMG/IDA-3.png)
+![](../IMG/report_idapro-3.png)
 
 可以使用空格键与反汇编窗口文本视图进行切换
 
@@ -47,11 +47,11 @@
 
 字符串子视图列出程序中所有`Unicode`、`ASCII`字符串.
 
-![](../IMG/IDA-4.png)
+![](../IMG/report_idapro-4.png)
 
 点击右键菜单的`Setup`选项,可以设置筛选字符串的条件,包括字符串的类型与长度等条件
 
-![](../IMG/IDA-5.png)
+![](../IMG/report_idapro-5.png)
 
 可在通过菜单工具栏的`View`/`Open subviews`/`Strings`打开.
 
@@ -59,7 +59,7 @@
 
 十六进制视图是未经过反汇编分析的窗口,直接以十六进制的代码表示程序的二进制码.
 
-![](../IMG/IDA-6.png)
+![](../IMG/report_idapro-6.png)
 
 可在通过菜单工具栏的`View`/`Open subviews`/`Hex Dump`打开.
 
@@ -67,7 +67,7 @@
 
 导入函数表将函数中所有识别出的导入函数列出,并确定其所在的库文件名
 
-![](../IMG/IDA-7.png)
+![](../IMG/report_idapro-7.png)
 
 可在通过菜单工具栏的`View`/`Open subviews`/`Imports`打开.
 
@@ -75,7 +75,7 @@
 
 导出函数表将函数中所有识别出的导出函数列出,一般在分析`dll`库文件时使用,而`exe`程序文件导出函数较少.
 
-![](../IMG/IDA-8.png)
+![](../IMG/report_idapro-8.png)
 
 可在通过菜单工具栏的`View`/`Open subviews`/`Exports`打开.
 
@@ -83,11 +83,11 @@
 
 交叉引用视图可以分析指定函数的对其他函数的调用以及被调用的情况.
 
-![](../IMG/IDA-9.png)
+![](../IMG/report_idapro-9.png)
 
 在查询该视图前,通过以下的设置界面确定目标函数和最大引用层次的信息
 
-![](../IMG/IDA-10.png)
+![](../IMG/report_idapro-10.png)
 
 可在通过菜单工具栏的`View`/`Graphs`/`User xrefs chart`打开.
 
@@ -97,13 +97,13 @@
 
 可以调出交叉引用界面,用于查询光标所在位置的函数的引用情况
 
-![](../IMG/IDA-11.png)
+![](../IMG/report_idapro-11.png)
 
 ##### 2.`G`键
 
 可以调出地址跳转界面,用于输入并跳转到指定地址
 
-![](../IMG/IDA-12.png)
+![](../IMG/report_idapro-12.png)
 
 ##### 3.空格键
 
