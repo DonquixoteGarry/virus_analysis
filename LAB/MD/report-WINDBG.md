@@ -85,3 +85,40 @@ C:/WINDOWS/Symbols/acm;C:/WINDOWS/Symbols/cnv;C:/WINDOWS/Symbols/com;C:/WINDOWS/
 
 ![](../IMG/report_windbg-8.png)
 
+### 指令的使用
+
+`bp`指令用于添加程序断点
+
+![](../IMG/LAB10-1-3.png)
+
+`g`指令用于使被中断程序继续运行
+
+![](../IMG/report_windbg-9.png)
+
+`lm`指令列出当前所有模块
+
+![](../IMG/report_windbg-10.png)
+
+`!drvobj`指令和`!devobj`指令用于查看指定驱动或设备
+
+![](../IMG/LAB10-3-3.png)
+
+`dd`指令用于列出指定值被调用的位置附近的内存数据
+
+![](../IMG/LAB10-3-5.png)
+
+`u`指令查看指定地址附近的指令
+
+![](../IMG/LAB10-2-5.png)
+
+`!object`指令列出所有对象,参数`\Device`列出所有设备,参数`\Driver`列出所有驱动
+
+![](../IMG/report_windbg-11.png)
+
+`dt`指令查看指定类型结构体或对象的结构,带有具体对象参数使会列出该对象详细信息
+
+![](../IMG/LAB10-3-4.png)
+
+`ln`指令查看指定地址附近对应的函数调用
+
+![](../IMG/LAB10-3-6.png)
