@@ -103,7 +103,7 @@ C:/WINDOWS/Symbols/acm;C:/WINDOWS/Symbols/cnv;C:/WINDOWS/Symbols/com;C:/WINDOWS/
 
 ![](../IMG/LAB10-3-3.png)
 
-`dd`指令用于列出指定值被调用的位置附近的内存数据
+`du`、`da`、`dd`指令用于列出指定地址或满足指定条件的地址附近的内存数据
 
 ![](../IMG/LAB10-3-5.png)
 
