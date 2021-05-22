@@ -1,0 +1,80 @@
+import "hash"
+rule lab10_01_sys
+{
+strings:
+	$s1="9!939:9?9H9O9" fullword ascii
+	$s2="RtlWriteRegistryValue" fullword ascii
+	$s3="c:\\winddk\\7600.16385.1\\src\\general\\regwriter\\wdm\\sys\\objfre_wxp_x86\\i386\\sioctl.pdb" fullword ascii
+	$s4="RtlWriteRegistryValue" fullword ascii
+	$s5="RtlCreateRegistryKey" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 4KB 
+		and hash.md5(0,filesize)=="3d3d1a8145e3237183984faed04e052e"
+}
+
+rule lab10_01_exe
+{
+strings:
+	$s1="Lab10-01" fullword ascii
+	$s2="C:\\Windows\\System32\\Lab10-01.sys" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 30KB 
+		and hash.md5(0,filesize)=="795f093a536f118fb4c34fcedfa42165"
+}
+
+rule lab10_02
+{
+strings:
+	$s1="LoadResource" fullword ascii
+	$s2="FindResourceA" fullword ascii
+	$s3="486 WS Driver" fullword ascii
+	$s4="C:\\Windows\\System32\\Mlwx486.sys" fullword ascii
+	$s5="c:\\winddk\\7600.16385.1\\src\\general\\rootkit\\wdm\\sys\\objfre_wxp_x86\\i386\\sioctl.pdb" fullword ascii
+	$s6="RtlCompareMemory" fullword ascii
+	$s7="NtQueryDirectoryFile" fullword ascii
+	$s8="MmGetSystemRoutineAddress" fullword ascii
+	$s9="RtlInitUnicodeString" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 40KB 
+		and hash.md5(0,filesize)=="3f3a29ca2467d2d05feac9d233366f45"
+}
+
+rule lab10_03_sys
+{
+strings:
+	$s1="c:\\winddk\\7600.16385.1\\src\\general\\rootkitprochide\\wdm\\sys\\objfre_wxp_x86\\i386\\sioctl.pdb" fullword ascii
+	$s2="IofCompleteRequest" fullword ascii
+	$s3="IoDeleteDevice" fullword ascii
+	$s4="IoDeleteSymbolicLink" fullword ascii
+	$s5="RtlInitUnicodeString" fullword ascii
+	$s6="IoGetCurrentProcess" fullword ascii
+	$s7="IoCreateSymbolicLink" fullword ascii
+	$s8="IoCreateDevice" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 4KB 
+		and hash.md5(0,filesize)=="cf91a08f3d7a2875d6120c16b7c55398"
+}
+
+rule lab10_03_exe
+{
+strings:
+	$s1="DeviceIoControl" fullword ascii
+	$s2="Sleep" fullword ascii
+	$s3="CreateFileA" fullword ascii
+	$s4="OleUninitialize" fullword ascii
+	$s5="CoCreateInstance" fullword ascii
+	$s6="OleInitialize" fullword ascii
+	$s7="ole32.dll" fullword ascii
+	$s8="OLEAUT32.dll" fullword ascii
+	$s9="\\.\\ProcHelper" fullword ascii
+	$s10="Process Helper" fullword ascii	
+	$s11="C:\\Windows\\System32\\Lab10-03.sys" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 30KB 
+		and hash.md5(0,filesize)=="f72d773f13ceb6b842a9d29c56f8880f"
+}
