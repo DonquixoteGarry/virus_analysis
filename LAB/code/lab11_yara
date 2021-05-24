@@ -1,0 +1,62 @@
+import "hash"
+rule lab11_01
+{
+strings:
+	$s1="msgina32.dll" fullword ascii
+	$s2="\\msgina32.dll" fullword ascii
+	$s3="WlxLoggedOutSAS" fullword ascii
+	$s4="SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 60KB 
+		and hash.md5(0,filesize)=="a9c55bb87a7c5c3c923c4fa12940e719"
+}
+
+rule lab11_02_dll
+{
+strings:
+	$s1="\\Lab11-02.ini" fullword ascii
+	$s2="\\spoolvxx32.dll" fullword ascii
+	$s3="AppInit_DLLs" fullword ascii
+	$s4="SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows" fullword ascii
+	$s5="OUTLOOK.EXE" fullword ascii
+	$s6="THEBAT.EXE" fullword ascii
+	$s7="MSIMN.EXE" fullword ascii
+	$s8="RCPT TO: <" fullword ascii
+	$s9="Lab11-02.dll" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 30KB 
+		and hash.md5(0,filesize)=="be4f4b9e88f2e1b1c38e0a0858eb3dd9"
+}
+
+rule lab11_03_dll
+{
+strings:
+	$s1="GetForegroundWindow" fullword ascii
+	$s2="GetAsyncKeyState" fullword ascii
+	$s3="Lab1103dll.dll" fullword ascii
+	$s4="zzz69806582" fullword ascii
+	$s5="C:\\WINDOWS\\System32\\kernel64x.dll" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 50KB 
+		and hash.md5(0,filesize)=="bbd65fcad68e5a3cd1457e2ee05d1f2e"
+}
+
+rule lab11_03_exe
+{
+strings:
+	$s1="MapViewOfFile" fullword ascii
+	$s2="UnmapViewOfFile" fullword ascii
+	$s3="CreateFileMappingA" fullword ascii
+	$s4="C:\\WINDOWS\\System32\\inet_epar32.dll" fullword ascii
+	$s5="zzz69806582" fullword ascii
+	$s6="net start cisvc" fullword ascii
+	$s7="C:\\WINDOWS\\System32\\%s" fullword ascii
+	$s8="Lab11-03.dll" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 50KB 
+		and hash.md5(0,filesize)=="18ec5becfa3991fb654e105bafbd5a4b"
+}
