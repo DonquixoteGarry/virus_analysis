@@ -1,0 +1,124 @@
+import "hash"
+rule lab12_01_dll
+{
+strings:
+	$s1="Press OK to reboot" fullword ascii
+	$s2="Practical Malware Analysis %d" fullword ascii
+	$s3="MessageBoxA" fullword ascii
+	$s4="LoadLibraryA" fullword ascii
+	$s5="Sleep" fullword ascii
+	
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 50KB 
+		and hash.md5(0,filesize)=="a6fb0d8fdea1c15afba7a5ddb3d2867b"
+}
+
+rule lab12_01_exe
+{
+strings:
+	$s1="MessageBoxA" fullword ascii
+	$s2="GetActiveWindow" fullword ascii
+	$s3="GetLastActivePopup" fullword ascii
+	$s4="CreateRemoteThread" fullword ascii
+	$s5="VirtualAllocEx" fullword ascii
+	$s6="explorer.exe" fullword ascii
+	$s7="<unknown>" fullword ascii
+	$s8="Lab12-01.dll" fullword ascii
+	$s9="EnumProcesses" fullword ascii
+	$s10="EnumProcessModules" fullword ascii
+	$s11="GetModuleBaseNameA" fullword ascii
+	$s12="psapi.dll" fullword ascii
+	$s13="LoadLibraryA" fullword ascii
+	$s14="GetProcAddress" fullword ascii
+	$s15="GetCPInfo" fullword ascii
+	$s16="GetACP" fullword ascii
+	$s17="GetOEMCP" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 40KB 
+		and hash.md5(0,filesize)=="dafbea2a91f86bf5e52efa3bac3f1b16"
+}
+
+rule lab12_02
+{
+strings:
+	$s1="GetLastActivePopup" fullword ascii
+	$s2="GetActiveWindow" fullword ascii
+	$s3="SetThreadContext" fullword ascii
+	$s4="WriteProcessMemory" fullword ascii
+	$s5="VirtualAllocEx" fullword ascii
+	$s6="GetProcAddress" fullword ascii
+	$s7="ReadProcessMemory" fullword ascii
+	$s8="GetThreadContext" fullword ascii
+	$s9="LoadResource" fullword ascii
+	$s10="FindResourceA" fullword ascii
+	$s11="Sleep" fullword ascii
+	$s12="\\svchost.exe" fullword ascii
+	$s13="NtUnmapViewOfSection" fullword ascii
+	$s14="ntdll.dll" fullword ascii
+	$s15="UNICODE" fullword ascii
+	$s16="LOCALIZATION" fullword ascii
+	$s17="UNICODE" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 60KB 
+		and hash.md5(0,filesize)=="e2bf42217a67e46433da8b6f4507219e"
+}
+
+rule lab12_03
+{
+strings:
+	$s1="MessageBoxA" fullword ascii
+	$s2="GetActiveWindow" fullword ascii
+	$s3="GetLastActivePopup" fullword ascii
+	$s4="AllocConsole" fullword ascii
+	$s5="FindWindowA" fullword ascii
+	$s6="ShowWindow" fullword ascii
+	$s7="SetWindowsHookExA" fullword ascii
+	$s8="UnhookWindowsHookEx" fullword ascii
+	$s9="CallNextHookEx" fullword ascii
+	$s10="GetForegroundWindow" fullword ascii
+	$s11="GetWindowTextA" fullword ascii
+	$s12="[Window:" fullword ascii
+	$s13="[SHIFT]" fullword ascii
+	$s14="[ENTER" fullword ascii
+	$s15="BACKSPACE" fullword ascii
+	$s16="[TAB]" fullword ascii
+	$s17="[CTRL]" fullword ascii
+	$s18="[DEL]" fullword ascii
+	$s19="[CAPS LOCK]" fullword ascii 
+	$s20="practicalmalwareanalysis.log" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 30KB 
+		and hash.md5(0,filesize)=="a7f21e412022554d187d6a876a3c08ac"
+}
+
+rule lab12_04
+{
+strings:
+	$s1="CreateRemoteThread" fullword ascii
+	$s2="GetProcAddress" fullword ascii
+	$s3="LoadLibraryA" fullword ascii
+	$s4="WriteFile" fullword ascii
+	$s5="LoadResource" fullword ascii
+	$s6="FindResourceA" fullword ascii
+	$s7="GetTempPathA" fullword ascii
+	$s8="GetWindowsDirectoryA" fullword ascii
+	$s9="MoveFileA" fullword ascii
+	$s10="SeDebugPrivilege" fullword ascii
+	$s11="sfc_os.dll" fullword ascii
+	$s12="winlogon.exe" fullword ascii
+	$s13="<not real>" fullword ascii
+	$s14="\\system32\\wupdmgr.exe" fullword ascii
+	$s15="psapi.dll" fullword ascii
+	$s16="GetModuleBaseNameA" fullword ascii
+	$s17="EnumProcessModules" fullword ascii
+	$s18="EnumProcesses" fullword ascii
+	$s19="\\winup.exe" fullword ascii
+	$s20="http://www.practicalmalwareanalysis.com/updater.exe" fullword ascii
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 40KB 
+		and hash.md5(0,filesize)=="56bed8249e7c2982a90e54e1e55391a2"
+}
