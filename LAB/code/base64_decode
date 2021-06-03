@@ -1,0 +1,15 @@
+import string
+import base64
+
+s=""
+tab="CDEFGHIJKLMNOPQRSTUVWXYZABcdefghijklmnopqrstuvwxyzab0123456789+/"
+b64="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+
+ciphertext="BInaEi=="
+
+for ch in ciphertext:
+    if (ch in tab):
+        s += b64[string.find(tab,str(ch))]
+    elif (ch == '='):
+        s += '='
+print base64.decodestring(s)

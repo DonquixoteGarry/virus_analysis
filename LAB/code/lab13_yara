@@ -1,0 +1,58 @@
+import "hash"
+rule lab13_01
+{
+strings:
+	$s1="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" fullword ascii
+	$s2="FindResourceA" fullword ascii
+	$s3="LoadResource" fullword ascii
+	$s4="WS2_32.dll" fullword ascii
+	$s5="WININET.dll" fullword ascii
+	$s6="Mozilla/4.0" fullword ascii
+	$s7="InternetReadFile" fullword ascii
+	
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 40KB 
+		and hash.md5(0,filesize)=="a9a2734d080e3ae0f5ada35e878da7c8"
+}
+
+rule lab13_02
+{
+strings:
+	$s1="GetTickCount" fullword ascii
+	$s2="GetDesktopWindow" fullword ascii
+	$s3="GetSystemMetrics" fullword ascii
+	$s4="CreateCompatibleBitmap" fullword ascii
+	$s5="CreateCompatibleDC" fullword ascii
+	$s6="USER32.dll" fullword ascii
+	
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 40KB 
+		and hash.md5(0,filesize)=="b65c4d7cbc4069ddbff665370201e588"
+}
+
+rule lab13_03
+{
+strings:
+	$s1="string too long" fullword ascii
+	$s2="invalid string position" fullword ascii
+	$s3="WriteConsoleA" fullword ascii
+	$s4="CreateThread" fullword ascii
+	$s5="CreateProcessA" fullword ascii
+	$s6="CreatePipe" fullword ascii
+	$s7="DuplicateHandle" fullword ascii
+	$s8="WSASocketA" fullword ascii
+	$s9="CDEFGHIJKLMNOPQRSTUVWXYZABcdefghijklmnopqrstuvwxyzab0123456789+/" fullword ascii
+	$s10="ERROR: API " fullword ascii
+	$s11="ijklmnopqrstuvwx" fullword ascii
+	$s12="www.practicalmalwareanalysis.com" fullword ascii
+	$s13="Object not Initialized" fullword ascii
+	$s14="Data not multiple of Block Size" fullword ascii
+	$s15="Incorrect key length" fullword ascii
+	$s16="Incorrect block length" fullword ascii
+		
+
+condition:
+	uint16(0)==0x5a4d and all of them and filesize < 80KB 
+		and hash.md5(0,filesize)=="98ea0fe0594f0f373d9791886a01db8c"
+}

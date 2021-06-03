@@ -1,0 +1,16 @@
+from Crypto.Cipher import AES
+import binascii
+
+raw =   '37 f3 1f 04 51 20 e0 b5  86 ac b6 0f 65 20 89 92' + \
+        '4f af 98 a4 c8 76 98 a6  4d d5 51 8f a5 cb 51 c5'+ \
+        'cf 86 11 0d c5 35 38 5c  9c c5 ab 66 78 40 1d df'+ \
+        '4a 53 f0 11 0f 57 6d 4f  b7 c9 c8 bf 29 79 2f c1'+ \
+        'ec 60 b2 23 00 7b 28 fa  4d c1 7b 81 93 bb ca 9e'+ \
+        'bb 27 dd 47 b6 be 0b 0f  66 10 95 17 9e d7 c4 8d'+ \
+        'ee 11 09 99 20 49 3b df  de be 6e ef 6a 12 db bd'+ \
+        'a6 76 b0 22 13 ee a9 38  2d 2f 56 06 78 cb 2f 91'+ \
+        'af 64 af a6 d1 43 f1 f5  47 f6 c2 c8 6f 00 49 39'
+ciphertext= binascii.unhexlify(raw.replace(' ',''))
+obj = AES.new('ijklmnopqrstuvwx',AES.MODE_CBC,16*b' ')
+print 'Plaintext is:\n'+obj.decrypt(ciphertext)
+        
