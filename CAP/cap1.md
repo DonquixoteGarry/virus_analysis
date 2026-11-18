@@ -204,3 +204,4 @@
 
 - `PEView`:用于分析`PE`文件结构
 - `Resource Hacker`:用于分析`.rsrc节`的数据,检查字符串、图标、菜单等资源调用情况
+- [Resource Cracker](https://www.pelock.com/products/resource-cracker)
